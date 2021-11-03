@@ -36,8 +36,6 @@ public class TelaPrincipal extends AppCompatActivity {
                         irFormLogin();
                     }
                 }, 2000);
-
-
             }
         });
     }
@@ -48,6 +46,11 @@ public class TelaPrincipal extends AppCompatActivity {
 
     private void irFormLogin(){
         Intent intent = new Intent(TelaPrincipal.this, FormLogin.class);
+        startActivity(intent);
+        finish();
+    }
+    public void irGaleria(View view) {
+        Intent intent = new Intent(this, galeria.class);
         startActivity(intent);
         finish();
     }

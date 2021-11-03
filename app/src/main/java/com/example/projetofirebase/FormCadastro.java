@@ -38,6 +38,7 @@ public class FormCadastro extends AppCompatActivity {
         setContentView(R.layout.activity_form_cadastro);
 
         getSupportActionBar().hide();
+       // getSupportActionBar().setHomeButtonEnabled(true);
 
         IniciarComponents();
 
