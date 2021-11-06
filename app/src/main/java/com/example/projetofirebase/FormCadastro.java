@@ -114,7 +114,6 @@ public class FormCadastro extends AppCompatActivity {
         });
     }
 
-
     private void SalvarDadosUsuario(){
         String nome = edit_nome.getText().toString();
         FirebaseFirestore db = FirebaseFirestore.getInstance();

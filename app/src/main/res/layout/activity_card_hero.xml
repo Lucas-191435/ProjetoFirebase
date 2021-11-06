@@ -8,7 +8,7 @@
     tools:context=".cardHero">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imghero"
         android:layout_width="255dp"
         android:layout_height="284dp"
         android:layout_marginTop="50dp"
@@ -19,21 +19,20 @@
         tools:srcCompat="@drawable/abomb" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/nameHero"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Hero Name"
         android:textColor="@color/red_marvel"
         android:textSize="45sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/imghero" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/descricao"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -43,5 +42,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/nameHero" />
 </androidx.constraintlayout.widget.ConstraintLayout>
