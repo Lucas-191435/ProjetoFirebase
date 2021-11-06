@@ -11,6 +11,8 @@ import com.example.projetofirebase.galeria;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+
+//Seleciona os campos do recyclerView
 public class UsuarioHolder extends RecyclerView.ViewHolder{
 
     public TextView txtNome, txtEmail ;
@@ -23,13 +25,5 @@ public class UsuarioHolder extends RecyclerView.ViewHolder{
         //txtEmail = (TextView) view.findViewById(R.id.txtEmail);
         imageHero = (ImageView) view.findViewById(R.id.imageHero);
 
-        /*imageHero.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent intent = new Intent(view.getContext(), cardHero.class);
-                view.getContext().startActivity(intent);;
-            }
-        });*/
     }
 }

@@ -33,6 +33,10 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
+
+/*
+* Nessa classe eu passo as informações para tela 'galeria' e 'cardHero';
+* */
 public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioHolder> {
 
     private final ArrayList<Hero> heros;
@@ -52,25 +56,22 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioHolder> {
     public void onBindViewHolder(@NonNull UsuarioHolder holder, int position) {
 
         holder.txtNome.setText(heros.get(position).getNomeHero());
-        //holder.txtEmail.setText(heros.get(position).getDescricao());
 
         String urlImage = heros.get(position).getUrlImgHero().replace("http://","https://");
         System.out.println(urlImage);
 
+        //Chama a classe para conseguir baixar a imgagem atravez da URL da API da Marvel
         new DownloadImageTask(holder.imageHero).execute(urlImage);
 
-        String nome = heros.get(position).getNomeHero().toString();
-        String descricao = heros.get(position).getDescricao();
-
+        //Logo abaixo está como é passado as informações para tela cardHero.
         holder.imageHero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), cardHero.class);
-                intent.putExtra("nome", nome);
-                intent.putExtra("descricao", descricao);
+                intent.putExtra("nome", heros.get(position).getNomeHero().toString());
+                intent.putExtra("descricao", heros.get(position).getDescricao());
                 intent.putExtra("img", urlImage);
-
-
+                
                 view.getContext().startActivity(intent);;
             }
         });

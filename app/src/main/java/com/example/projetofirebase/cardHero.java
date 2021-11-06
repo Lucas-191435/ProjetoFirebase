@@ -24,11 +24,13 @@ public class cardHero extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card_hero);
 
+
+        //Selecio os componentes na activity cardHero
         nameHero = findViewById(R.id.nameHero);
         descricao = findViewById(R.id.descricao);
         imgHero = findViewById(R.id.imghero);
 
-
+        //Recebe as informações que são passadas na classe 'UsuarioAdapter, para criar uma tela com o meu heroi que aparece na tela galeria'
         nameHero.setText(getIntent().getStringExtra("nome"));
         descricao.setText(getIntent().getStringExtra("descricao"));
         String img = getIntent().getStringExtra("img");

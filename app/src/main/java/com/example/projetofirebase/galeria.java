@@ -57,18 +57,13 @@ public class galeria extends AppCompatActivity {
         new UsuarioAPI("GET").execute("Hero","");
     };
 
-
-    public void btnAddUsuarioClick(View view){
-        System.out.println("Foi");
-       /* Usuario usu = new Usuario(0,"Lucas", "tetes@abraoreze.com.br", "1234");
-        new UsuarioAPI("POST").execute("Usuario",Usuario.parseJson(usu)); */
-    }
-
     public void setupRecyclerUsuario(){
         //Configurando o layout manager
         //LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         //recyclerUsuario.setLayoutManager(layoutManager);
 
+
+        //Cria o sistema de grid da tela com duas colunas
         GridLayoutManager layoutManager = new GridLayoutManager(this, 2);
         recyclerUsuario.setLayoutManager(layoutManager);
 
@@ -78,7 +73,6 @@ public class galeria extends AppCompatActivity {
 
         //------divisor entre linhas -- Nele posso usar o grade para mudar a origentação
         //recyclerUsuario.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
-
     }
 
 
