@@ -116,14 +116,25 @@ public class FormCadastro extends AppCompatActivity {
 
     private void SalvarDadosUsuario(){
         String nome = edit_nome.getText().toString();
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
 
+        //Cria um objeto para adicionar no documento Usuários
         Map<String,Object> usuarios = new HashMap<>();
+        Map<String,Object> listHero = new HashMap<>();
         usuarios.put("nome", nome);
+        listHero.put("idHero", 2334);
+        usuarios.put("listHero", listHero);
+
+
 
         usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
         DocumentReference documentReference = db.collection("Usuarios").document(usuarioID);
+
+        documentReference.collection("listHero").document("listHero").set(listHero);
+        documentReference.collection("listHero").document("listHero").set(listHero);
+
+
+
         documentReference.set(usuarios).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {

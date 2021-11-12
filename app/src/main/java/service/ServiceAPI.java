@@ -33,26 +33,26 @@ public class ServiceAPI {
             }
             return response;
         }
-        else if(method == "POST") {
-            try {
-                URL url = new URL(reqUrl);
-                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-                conn.setDoOutput(true);
-                conn.setDoInput(true);
-                conn.setRequestProperty("Content-Type", "application/json");
-                conn.setRequestProperty("Accept", "application/json");
-                conn.setRequestMethod(method);
-                OutputStream out = conn.getOutputStream();
-                byte[] input = data.getBytes("utf-8");
-                out.write(input, 0, input.length);
-                int responseCode= conn.getResponseCode();
-                if(responseCode == HttpsURLConnection.HTTP_CREATED)
-                    return "OK";
-                return "Erro";
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+//        else if(method == "POST") {
+//            try {
+//                URL url = new URL(reqUrl);
+//                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+//                conn.setDoOutput(true);
+//                conn.setDoInput(true);
+//                conn.setRequestProperty("Content-Type", "application/json");
+//                conn.setRequestProperty("Accept", "application/json");
+//                conn.setRequestMethod(method);
+//                OutputStream out = conn.getOutputStream();
+//                byte[] input = data.getBytes("utf-8");
+//                out.write(input, 0, input.length);
+//                int responseCode= conn.getResponseCode();
+//                if(responseCode == HttpsURLConnection.HTTP_CREATED)
+//                    return "OK";
+//                return "Erro";
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//        }
         return "";
     }
 
