@@ -71,6 +71,7 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioHolder> {
                 intent.putExtra("nome", heros.get(position).getNomeHero().toString());
                 intent.putExtra("descricao", heros.get(position).getDescricao());
                 intent.putExtra("img", urlImage);
+                intent.putExtra("idHero", heros.get(position).getId());
 
                 view.getContext().startActivity(intent);;
             }

@@ -66,7 +66,7 @@ public class TelaPrincipal extends AppCompatActivity {
         });
 
 
-        
+
         documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
