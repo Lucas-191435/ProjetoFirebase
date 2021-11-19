@@ -73,9 +73,11 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioHolder> {
                 intent.putExtra("img", urlImage);
                 intent.putExtra("idHero", heros.get(position).getId());
 
-                view.getContext().startActivity(intent);;
+                view.getContext().startActivity(intent);
             }
         });
+
+
     }
 
     //Metodo para trazer as imagens

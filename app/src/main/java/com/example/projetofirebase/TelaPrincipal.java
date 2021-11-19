@@ -110,8 +110,9 @@ public class TelaPrincipal extends AppCompatActivity {
     }
     public void irGaleria(View view) {
         Intent intent = new Intent(this, galeria.class);
-        startActivity(intent);
-        finish();
+        view.getContext().startActivity(intent);
+//        startActivity(intent);
+//        finish();
     }
 
 }

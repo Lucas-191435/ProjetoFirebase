@@ -22,8 +22,11 @@ public class UsuarioHolder extends RecyclerView.ViewHolder{
     public UsuarioHolder(View view){
         super(view);
         txtNome = (TextView)view.findViewById(R.id.txtNome);
-        //txtEmail = (TextView) view.findViewById(R.id.txtEmail);
         imageHero = (ImageView) view.findViewById(R.id.imageHero);
 
     }
+
+
+
+
 }

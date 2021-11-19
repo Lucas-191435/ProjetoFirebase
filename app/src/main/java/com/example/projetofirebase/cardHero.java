@@ -92,7 +92,6 @@ public class cardHero extends AppCompatActivity{
     }
 
     private void vericaHeroFavorite() {
-
         usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         DocumentReference documentReference = db.collection("Usuarios").document(usuarioID);
@@ -121,6 +120,7 @@ public class cardHero extends AppCompatActivity{
                 }
             }
         });
+
     }
 
     private void removeHeroFavorite() {
@@ -201,8 +201,6 @@ public class cardHero extends AppCompatActivity{
             bmImage.setImageBitmap(result);
         }
     }
-
-
 }
 
 

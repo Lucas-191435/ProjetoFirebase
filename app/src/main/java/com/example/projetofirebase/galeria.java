@@ -1,22 +1,27 @@
 package com.example.projetofirebase;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
-import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
@@ -32,17 +37,22 @@ public class galeria extends AppCompatActivity {
     RecyclerView recyclerUsuario;
     UsuarioAdapter usuarioAdapter;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_galeria);
 
-        recyclerUsuario = (RecyclerView) findViewById(R.id.recyclerUsuario);
+        recyclerUsuario = (RecyclerView) findViewById(R.id.recyclerHerois);
         listaUsuarios = new ArrayList<>();
+
 
         //GridLayoutManager layoutManager = new GridLayoutManager(this, 2);
         //recyclerUsuario.setLayoutManager(layoutManager);
+    }
+
+    public void telaFavoritos(View view) {
+        Intent intent = new Intent(this, GaleriaFavoritos.class);
+        view.getContext().startActivity(intent);
     }
 
 
@@ -75,8 +85,6 @@ public class galeria extends AppCompatActivity {
         //recyclerUsuario.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
     }
 
-
-
     public class UsuarioAPI extends AsyncTask<String,String,String>{
 
         private String metodo;
@@ -90,8 +98,6 @@ public class galeria extends AppCompatActivity {
             dialog = ProgressDialog.show(galeria.this,"Aguarde", "Por favor aguarde...");
         }
 
-
-
         @Override
         protected String doInBackground(String... strings) {
             String data = ServiceAPI.getService(strings[0],metodo,strings[1]);
@@ -102,8 +108,13 @@ public class galeria extends AppCompatActivity {
         protected void onPostExecute(String s){
             super.onPostExecute(s);
             if(metodo == "GET"){
+                System.out.println("---ESTOU VENDO O QUE É O 'S'---");
+                System.out.println(s);
                 listaUsuarios = Hero.parseObject(s);
                 setupRecyclerUsuario();
+
+                System.out.println("---Esse É O listaUsuario");
+                System.out.println(listaUsuarios.toString());
                 dialog.dismiss();
             }
             else if ( s == "OK"){
