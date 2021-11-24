@@ -118,13 +118,14 @@ public class FormCadastro extends AppCompatActivity {
         String nome = edit_nome.getText().toString();
 
         //Cria um objeto para adicionar no documento Usuários
-        Map<String,Object> usuarios = new HashMap<>();
+        Map<String,Object> usuario = new HashMap<>();
+        usuario.put("nome", nome);
 
         usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         DocumentReference documentReference = db.collection("Usuarios").document(usuarioID);
 
-        documentReference.set(usuarios).addOnSuccessListener(new OnSuccessListener<Void>() {
+        documentReference.set(usuario).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
                 Log.d("db", "Sucesso ao salvar os dados");

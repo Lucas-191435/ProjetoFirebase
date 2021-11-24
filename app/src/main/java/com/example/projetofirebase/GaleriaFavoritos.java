@@ -43,12 +43,14 @@ public class GaleriaFavoritos extends AppCompatActivity {
         recyclerUsuario = (RecyclerView) findViewById(R.id.recyclerHerois);
         listaUsuarios = new ArrayList<>();
 
-        //buscaFavoritos();
-        buscaFavoritos2();
+
+        buscaFavoritos();
 
     }
 
-    private void buscaFavoritos2() {
+    // Aqui estou recebendo as informações do banco, cada heroi e um json, que junto em um JSONArray.
+    // Após ter um array de json, passo ele para parseObjectFavorito que está na classe Hero
+    private void buscaFavoritos() {
         usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         DocumentReference documentReference = db.collection("Usuarios").document(usuarioID);
@@ -64,11 +66,9 @@ public class GaleriaFavoritos extends AppCompatActivity {
                                 Log.d("TAG", document.getId() + " => " + document.getData());
 
                                 JSONObject obj = new JSONObject(document.getData());
-
                                 jsonArray.put(obj);
 
                             }
-
                             listaUsuarios = Hero.parseObjectFavorito(jsonArray.toString());
                             setupRecyclerUsuario();
 
@@ -86,6 +86,8 @@ public class GaleriaFavoritos extends AppCompatActivity {
         //buscarUsuarios();
     }
 
+
+    //Aqui defino o layout do recyclerView
     public void setupRecyclerUsuario(){
 
         //Cria o sistema de grid da tela com duas colunas
@@ -98,36 +100,12 @@ public class GaleriaFavoritos extends AppCompatActivity {
 
     }
 
-
-    //PRIMEIRO METODO PARA CRIAR OS CARDS COM OS HEROIS NO BANCO
-    private void buscaFavoritos() {
-        usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        DocumentReference documentReference = db.collection("Usuarios").document(usuarioID);
-
-        documentReference.collection("listHero").get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                System.out.println("-----");
-                                Log.d("TAG", document.getId() + " => " + document.getData());
-
-                                //listaUsuarios = Hero.parseObjectFavorito(document.getData());
-                                setupRecyclerUsuario();
-                                //dialog.dismiss();
-                            }
-                        } else {
-                            Log.d("TAG", "Error getting documents: ", task.getException());
-                        }
-                    }
-                });
-    }
-
-
     public void telaGaleria(View view) {
         Intent intent = new Intent(this, galeria.class);
+        view.getContext().startActivity(intent);
+    }
+    public void telaPerfil(View view) {
+        Intent intent = new Intent(this, TelaPrincipal.class);
         view.getContext().startActivity(intent);
     }
 }

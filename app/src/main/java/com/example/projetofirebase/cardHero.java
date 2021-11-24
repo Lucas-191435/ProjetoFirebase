@@ -73,14 +73,14 @@ public class cardHero extends AppCompatActivity{
                 //boolean isFavourite = readState();
                 //removendo as informações do banco
                 if (isFavourite) {
-                    imgButton.setBackgroundResource(R.drawable.ic_person);
+                    imgButton.setBackgroundResource(R.drawable.marca_paginas_2);
                     removeHeroFavorite();
                     isFavourite = false;
                     saveState(isFavourite);
                 }
                 //Aqui estou enviando as informações para o banco
                 else {
-                    imgButton.setBackgroundResource(R.drawable.ic_email);
+                    imgButton.setBackgroundResource(R.drawable.marca_paginas);
                     addHeroFavorite();
                     isFavourite = true;
                     saveState(isFavourite);
@@ -109,7 +109,7 @@ public class cardHero extends AppCompatActivity{
                     if (document.exists()) {
                         System.out.println("EXISTE O DOCUMENTO");
                         final ImageButton imgButton =(ImageButton)findViewById(R.id.favbtn);
-                        imgButton.setBackgroundResource(R.drawable.ic_email);
+                        imgButton.setBackgroundResource(R.drawable.marca_paginas);
                         isFavourite = true;
                         saveState(isFavourite);
                     } else {

@@ -55,6 +55,11 @@ public class galeria extends AppCompatActivity {
         view.getContext().startActivity(intent);
     }
 
+    public void telaPerfil(View view) {
+        Intent intent = new Intent(this, TelaPrincipal.class);
+        view.getContext().startActivity(intent);
+    }
+
 
 
     @Override
@@ -108,13 +113,8 @@ public class galeria extends AppCompatActivity {
         protected void onPostExecute(String s){
             super.onPostExecute(s);
             if(metodo == "GET"){
-                System.out.println("---ESTOU VENDO O QUE É O 'S'---");
-                System.out.println(s);
                 listaUsuarios = Hero.parseObject(s);
                 setupRecyclerUsuario();
-
-                System.out.println("---Esse É O listaUsuario");
-                System.out.println(listaUsuarios.toString());
                 dialog.dismiss();
             }
             else if ( s == "OK"){

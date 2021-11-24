@@ -55,12 +55,9 @@ public class Hero {
         System.out.println(json);
         ArrayList<Hero> heros = new ArrayList<>();
         try {
-
             JSONArray jsonArray = null;
             JSONObject jsonObject = null;
-
             JSONObject obj = new JSONObject(json);
-
             JSONObject data = obj.getJSONObject("data");
             jsonArray = data.getJSONArray("results");
 
@@ -97,7 +94,6 @@ public class Hero {
         System.out.println(json);
         ArrayList<Hero> heros = new ArrayList<>();
         try {
-
             System.out.println("NÂO PASSA");
             JSONArray jsonArray = new JSONArray(json);
             System.out.println("NÂO PASSA 2");
@@ -118,8 +114,6 @@ public class Hero {
                 System.out.println("etapa 6 ");
                 System.out.println("---AQUI ESTOU TENTANDO MOSTRAR O HEROI QUE FOI ADICIONADO");
                 System.out.println(hero);
-
-
             }
 
             return heros;

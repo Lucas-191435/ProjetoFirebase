@@ -73,6 +73,7 @@ public class TelaPrincipal extends AppCompatActivity {
                 if(documentSnapshot != null){
                     // seleciona campo de um documento no firebase
                     userName.setText(documentSnapshot.getData().get("nome").toString());
+                    //userName.setText("user");
                 }
             }
         });

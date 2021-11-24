@@ -16,7 +16,7 @@ import javax.net.ssl.HttpsURLConnection;
 public class ServiceAPI {
 
     private  static final String url = "\n" +
-            "https://gateway.marvel.com/v1/public/characters?ts=1628813555&apikey=209675a6c91c94c2bb8ad65773eb9d53&hash=c1ca217ecb7f359f91c027d71df11c04&limit=6";
+            "https://gateway.marvel.com/v1/public/characters?ts=1628813555&apikey=209675a6c91c94c2bb8ad65773eb9d53&hash=c1ca217ecb7f359f91c027d71df11c04&limit=20";
 
     public static String getService(String dataset, String method, String data){
         String reqUrl = url + dataset;
@@ -33,26 +33,26 @@ public class ServiceAPI {
             }
             return response;
         }
-//        else if(method == "POST") {
-//            try {
-//                URL url = new URL(reqUrl);
-//                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-//                conn.setDoOutput(true);
-//                conn.setDoInput(true);
-//                conn.setRequestProperty("Content-Type", "application/json");
-//                conn.setRequestProperty("Accept", "application/json");
-//                conn.setRequestMethod(method);
-//                OutputStream out = conn.getOutputStream();
-//                byte[] input = data.getBytes("utf-8");
-//                out.write(input, 0, input.length);
-//                int responseCode= conn.getResponseCode();
-//                if(responseCode == HttpsURLConnection.HTTP_CREATED)
-//                    return "OK";
-//                return "Erro";
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        }
+        else if(method == "POST") {
+            try {
+                URL url = new URL(reqUrl);
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setDoOutput(true);
+                conn.setDoInput(true);
+                conn.setRequestProperty("Content-Type", "application/json");
+                conn.setRequestProperty("Accept", "application/json");
+                conn.setRequestMethod(method);
+                OutputStream out = conn.getOutputStream();
+                byte[] input = data.getBytes("utf-8");
+                out.write(input, 0, input.length);
+                int responseCode= conn.getResponseCode();
+                if(responseCode == HttpsURLConnection.HTTP_CREATED)
+                    return "OK";
+                return "Erro";
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         return "";
     }
 

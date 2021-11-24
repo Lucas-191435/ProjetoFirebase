@@ -26,7 +26,4 @@ public class UsuarioHolder extends RecyclerView.ViewHolder{
 
     }
 
-
-
-
 }

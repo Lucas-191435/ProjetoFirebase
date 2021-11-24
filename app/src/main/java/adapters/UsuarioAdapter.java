@@ -76,8 +76,6 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioHolder> {
                 view.getContext().startActivity(intent);
             }
         });
-
-
     }
 
     //Metodo para trazer as imagens
